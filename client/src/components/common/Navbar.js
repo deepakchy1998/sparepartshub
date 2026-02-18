@@ -58,6 +58,19 @@ const Navbar = () => {
               </Link>
             )}
             {user?.role === 'customer' && (
+              <Link to="/complaints" className="hover:text-accent-200 transition-colors">
+                📋 My Orders
+              </Link>
+            )}
+            {user?.role === 'admin' && (
+              <>
+                <Link to="/admin/users" className="hover:text-accent-200 transition-colors">👥 Users</Link>
+                <Link to="/admin/orders" className="hover:text-accent-200 transition-colors">📦 Orders</Link>
+                <Link to="/admin/complaints" className="hover:text-accent-200 transition-colors">📋 Complaints</Link>
+                <Link to="/admin/categories" className="hover:text-accent-200 transition-colors">🏷️ Categories</Link>
+              </>
+            )}
+            {user?.role === 'customer' && (
               <Link to="/cart" className="relative hover:text-accent-200 transition-colors">
                 <FiShoppingCart className="text-xl" />
                 {cartCount > 0 && (
